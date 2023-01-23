@@ -1,23 +1,25 @@
+require "./classes/questions"
+
 class Game
-  attr_accessor :current_player
-
-  def initialize(current_player, questions)
+  def initialize(current_player)
     @current_player = current_player
-    @questions = questions
   end
 
-  def generate_question(question_no)
-    # puts @question_no
-    # @question_no = @question_no + 1
-    @questions[question_no]
-  end
+  def play      
+      # Generate new question
+      question = Questions.new()
+      puts "#{@current_player.player}:", question.generate_question
 
-  def correct_answer(question, answer, lives)
-    if (question[:answer] == answer)
-      return question[:correct_comment]
-    else
-      lives = lives - 1
-      return question[:wrong_comment]
-    end
+      # Take user input
+      answer = gets.chomp.to_i
+
+      # Compare with answer
+      verdict = question.correct_answer(answer)
+      puts "#{@current_player.player}:", verdict
+
+      # Reduce lives if verdict is wrong
+      if verdict == "Wrong"
+        @current_player.lives = @current_player.lives - 1
+      end
   end
 end
