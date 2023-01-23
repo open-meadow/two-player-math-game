@@ -1,4 +1,4 @@
-@questions = [
+@questions_p1 = [
   {
     id: 1,
     question: "What is 1 + 1?",

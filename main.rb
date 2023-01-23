@@ -1,4 +1,5 @@
-require "./questions/questions"
+require "./questions/questions_p1"
+require "./questions/questions_p2"
 require "./game"
 
 # puts "Hello world!"
@@ -6,18 +7,18 @@ require "./game"
 
 # current_player = 1;
 
-def chosen_question(question_number)
-  question_number = question_number - 1
-  @questions[question_number]
-end
+# def chosen_question(question_number)
+#   question_number = question_number - 1
+#   @questions_p1[question_number]
+# end
 
-def correct_answer(question, answer)
-  if (question[:answer] == answer)
-    return question[:correct_comment]
-  else
-    return question[:wrong_comment]
-  end
-end
+# def correct_answer(question, answer)
+#   if (question[:answer] == answer)
+#     return question[:correct_comment]
+#   else
+#     return question[:wrong_comment]
+#   end
+# end
 
 
 # puts "Pick your question "
@@ -28,6 +29,9 @@ end
 # answer = gets.chomp.to_i
 # puts correct_answer(question, answer)
 
-player1 = Game.new("player 1")
+player1 = Game.new("player 1", @questions_p1)
 puts player1
-player1.generate_question
+question = player1.generate_question
+puts question[:question]
+answer = gets.chomp.to_i
+puts player1.correct_answer(question, answer)
