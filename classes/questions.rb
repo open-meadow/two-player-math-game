@@ -10,10 +10,6 @@ class Questions
   end
 
   def correct_answer(answer)
-    if (answer == @sum)
-      return "Correct"
-    else
-      return "Wrong"
-    end
+    return (answer == @sum) ? "Correct" : "Wrong"
   end
 end
