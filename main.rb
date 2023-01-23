@@ -15,6 +15,11 @@ while player1.lives > 0 && player2.lives > 0
 
   # if current player is player1, change to player 2 and vice versa
   current_player = (current_player == player1) ? player2 : player1
-
+  puts "---END OF TURN---"
 end
+
+# Show winner
+puts (player1.lives > 0) ? "#{player1.player} wins with a score of #{player1.lives}/3" : "#{player2.player} wins with a score of #{player2.lives}/3"
+puts "---------GAME OVER---------"
+puts "Good Bye!"
 
