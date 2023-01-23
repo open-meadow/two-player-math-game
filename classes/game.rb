@@ -12,10 +12,11 @@ class Game
     @questions[question_no]
   end
 
-  def correct_answer(question, answer)
+  def correct_answer(question, answer, lives)
     if (question[:answer] == answer)
       return question[:correct_comment]
     else
+      lives = lives - 1
       return question[:wrong_comment]
     end
   end

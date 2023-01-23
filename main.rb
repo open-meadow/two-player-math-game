@@ -38,28 +38,20 @@ player2 = Player.new("player 2")
 # puts player2.lives
 
 current_player = player1
-
-p1_game = Game.new(player1, @questions_p1)
-p2_game = Game.new(player2, @questions_p2)
+game = Game.new(current_player, @questions_p1)
 # puts "Game", p1_game
 
+question = game.generate_question(current_player.question_no)
+puts current_player.player, question[:question]
+answer = gets.chomp.to_i
+# answer_check = game.correct_answer(question, answer, current_player.lives)
+puts game.correct_answer(question, answer, current_player.lives)
+puts current_player.lives, "lives"
+current_player.question_no = current_player.question_no + 1
+# puts player1.question_no
 
 if current_player == player1
-  question = p1_game.generate_question(player1.question_no)
-  # puts "Player 1: ", question[:question]
-  answer = gets.chomp.to_i
-  # puts p1_game.correct_answer(question, answer)
-  player1.question_no = player1.question_no + 1
-  # puts player1.question_no
   current_player = player2
-end
-
-if current_player == player2
-  question = p2_game.generate_question(player2.question_no)
-  # puts "Player 2: ", question[:question]
-  answer = gets.chomp.to_i
-  # puts p2_game.correct_answer(question, answer)
-  player2.question_no = player2.question_no + 1
-  # puts player2.question_no
+else
   current_player = player1
 end
