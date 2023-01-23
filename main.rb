@@ -1,13 +1,14 @@
-require "./questions/questions_p1"
-require "./questions/questions_p2"
+require "./questions/questions"
+require "./game"
 
 # puts "Hello world!"
 # puts @questions_p1[0]
 
+# current_player = 1;
 
 def chosen_question(question_number)
   question_number = question_number - 1
-  @questions_p1[question_number]
+  @questions[question_number]
 end
 
 def correct_answer(question, answer)
@@ -19,10 +20,14 @@ def correct_answer(question, answer)
 end
 
 
-puts "Pick your question "
-question_number = gets.chomp.to_i
-question =   chosen_question(question_number)
-puts question
-puts question[:question]
-answer = gets.chomp.to_i
-puts correct_answer(question, answer)
+# puts "Pick your question "
+# question_number = gets.chomp.to_i
+# question =   chosen_question(question_number)
+# puts question
+# puts question[:question]
+# answer = gets.chomp.to_i
+# puts correct_answer(question, answer)
+
+player1 = Game.new("player 1")
+puts player1
+player1.generate_question
